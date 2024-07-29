@@ -1,0 +1,15 @@
+:root {
+  font-family: 'museo';
+}
+
+.s9-event-title {
+  font-family: 'museo-slab', serif;
+  font-weight: 500;
+  font-size: 3rem;
+  line-height: 3rem;
+  background-color: var(--flk);
+}
+.s9-event-blurb {
+  max-width: 72ch;
+  text-align: justify;
+}

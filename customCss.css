@@ -1,0 +1,665 @@
+/* popupButton */
+.sqs-slide-wrapper[data-slide-type='popup-overlay'] .button-style-solid [data-slice-type='buttons'] a,
+.sqs-slide-wrapper[data-slide-type='popup-overlay'] .button-style-solid .sqs-slice-custom-form a,
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .button-style-solid
+  ~ .sqs-modal-lightbox
+  .form-wrapper
+  input[type='submit'],
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .button-style-solid
+  [data-compound-type='popup-overlay-action']
+  button[type='submit'] {
+  background: var(--w4) !important;
+  color: var(--b1) !important;
+  border-style: none;
+  font-family: museo !important;
+  font-weight: 600 !important;
+}
+
+/* popupBoxResize */
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  [data-slide-layout-id='overlay-center-card-03']
+  [data-slice-type='gallery'] {
+  padding-bottom: 80% !important;
+}
+
+.sqs-slide-wrapper[data-slide-type='popup-overlay'] .sqs-slide-container[data-slide-type='popup-overlay'] .group-copy {
+  padding: 0px !important;
+}
+
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .sqs-slide-container[data-slide-type='popup-overlay']
+  .layer-front
+  .actions {
+  max-width: none !important;
+}
+
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .sqs-slide-container[data-slide-type='popup-overlay'].overlay-alignment-left
+  .actions,
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .sqs-slide-container[data-slide-type='popup-overlay'].overlay-alignment-center
+  .actions,
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .sqs-slide-container[data-slide-type='popup-overlay'].overlay-alignment-left
+  .form-disclaimer-text,
+.sqs-slide-wrapper[data-slide-type='popup-overlay']
+  .sqs-slide-container[data-slide-type='popup-overlay'].overlay-alignment-center
+  .form-disclaimer-text {
+  margin-top: 0px !important;
+}
+
+/* showPopupPhotoinMobile */
+@media all and (min-width: 1px) and (max-width: 600px) {
+  .sqs-slide-wrapper[data-slide-type='popup-overlay']
+    .sqs-slide-container[data-slide-type='popup-overlay']
+    [data-slice-type='gallery'] {
+    display: block !important;
+  }
+  .sqs-popup-overlay {
+    height: 100vh;
+  }
+}
+
+/* mobileNavPadding */
+@media only screen and (pointer: coarse) and (max-width: 1024px), screen and (max-width: 799px) {
+  .header .header-announcement-bar-wrapper {
+    padding: 3vw;
+  }
+}
+
+/* colorTicketingLink */
+.header-nav-list {
+  align-items: center;
+}
+
+.header-nav-wrapper a[href='/23-24-tickets'] {
+  color: var(--k7);
+  background-color: var(--w1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+/*.header-menu a [href="/about#donate"] {
+  color: var(--w1) !important;
+  background-color: var(--w1);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 700;
+}*/
+
+[data-section-id='64dd037e04dae424d38fd9db'] {
+  max-width: 100vw !important;
+  .content-wrapper {
+    padding: 0px !important;
+    margin: 0px !important;
+    max-width: 100vw;
+  }
+  .sqs-layout > .sqs-row {
+    padding: 0px !important;
+    margin: 0px !important;
+  }
+  .sqs-layout .sqs-row .sqs-block:last-child,
+  .sqs-layout .sqs-row .sqs-block:first-child {
+    padding: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 1023px) {
+  .event-title {
+    padding-top: min(2vh, 64px);
+    padding-bottom: min(2vh, 64px);
+    padding-left: min(3vw, 30px);
+    padding-right: min(3vw, 30px);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+  }
+  .event-title img {
+    max-height: 40vw !important;
+  }
+}
+
+[data-section-id='64d6a13402e6365507671849'] {
+  /* min-height: 80vh; */
+  .content-wrapper {
+    padding-top: 0px !important;
+  }
+}
+
+[data-section-id='64d6a13402e6365507671849'] {
+  :not(.has-background) .section-background {
+    background-color: var(--k4);
+    background-image: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.4),
+      rgba(180, 180, 180, 0.4),
+      rgba(255, 255, 255, 0.4),
+      rgba(180, 180, 180, 0.4),
+      rgba(0, 0, 0, 0.4)
+    );
+  }
+}
+
+/*Color Variables */
+:root {
+  --white: #ffffff;
+  --black: #1e1e1e;
+
+  --s1: #ffe6d3;
+  --s2: #ffdabe;
+  --s3: #ffcda8;
+  --s4: #ffc192;
+  --s5: #bf916d;
+  --s6: #806049;
+  --s7: #403024;
+
+  --ns1: #fdba60;
+  --ns2: #fc9626;
+  --ns3: #c1731b;
+
+  --fls: rgba(251, 130, 0, 1);
+
+  --w1: #c7ebe6;
+  --w2: #abe1d9;
+  --w3: #8fd8cc;
+  --w4: #73cec0;
+  --w5: #569b90;
+  --w6: #3a6760;
+  --w7: #1d3330;
+
+  --nw1: #7bfdca;
+  --nw2: #3efca2;
+  --nw3: #1b8454;
+
+  --flw: rgba(0, 251, 134, 1);
+
+  --k1: #dadfe5;
+  --k2: #b3b9cd;
+  --k3: #8e96b3;
+  --k4: #68739a;
+  --k5: #425081;
+  --k6: #323c61;
+  --k7: #212840;
+
+  --nk1: #7270ef;
+  --nk2: #2c3bfb;
+  --nk3: #181c86;
+
+  --flk: rgba(0, 58, 255, 1);
+}
+
+/* No-Border */
+[data-section-id='62c730c1dd8b2e0ee486a225'],
+[data-section-id='62c7314faca32e58e80fe4e6'],
+[data-section-id='62c73152e832d80b88804fa8'],
+[data-section-id='62c73154ce621168bab950a6'],
+[data-section-id='62c7315639fb83000f4a1fb9'],
+[data-section-id='62c73159d7d2a76bf00c3979'] {
+  .content-wrapper {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    max-width: none;
+    padding-right: 0vw !important;
+    padding-left: 0vw !important;
+    margin: 0 auto;
+    box-sizing: content-box;
+  }
+  .sqs-block {
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+  }
+  .sqs-layout > .sqs-row {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+}
+
+/* overlap-images */
+[data-section-id='62c730c1dd8b2e0ee486a225'],
+[data-section-id='62c7314faca32e58e80fe4e6'],
+[data-section-id='62c73152e832d80b88804fa8'],
+[data-section-id='62c73154ce621168bab950a6'],
+[data-section-id='62c7315639fb83000f4a1fb9'],
+[data-section-id='62c73159d7d2a76bf00c3979'] {
+  .eventtitle {
+    position: relative;
+    height: 90vh;
+    max-height: 80vw;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* mainLandingPhoto */
+[data-section-id='62c5cad5dbb3687094f270d2'] {
+  max-height: 100vh;
+}
+
+/* 22-23-event-title */
+.eventtitle img {
+  width: 100vw;
+}
+
+/* seasonBGcolor */
+[data-section-id='62c5fd89ccd2dc4cf400ecac'],
+[data-section-id='62c5fd9997366e6dd9a025a2'],
+[data-section-id='62c5fda7246ebb772fd84813'],
+[data-section-id='62c5fdacdc27de381154c507'],
+[data-section-id='62c5fdb5d9ec9514dce2042f'],
+[data-section-id='62c5fdc2c8ae1c1cb60173a6'] {
+  .section-background {
+    background-color: #1e1e1e;
+  }
+  img {
+    object-position: 0% !important;
+    object-fit: contain !important;
+    max-width: 90vw !important;
+    max-height: auto;
+  }
+}
+
+/* General */
+html {
+  --scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+.bigspacer {
+  height: 20vh;
+}
+.smspacer {
+  height: 1vh;
+}
+
+a.anchor {
+  position: relative;
+  top: -22vh;
+  visibility: hidden;
+}
+
+/*
+/* header */
+.header-nav-wrapper a[href='/about'] {
+  padding: 10px 0px 10px 0px;
+  position: relative;
+}
+.header-nav-wrapper a[href='/21-22-season'] {
+  padding: 10px 0px 10px 0px;
+  position: relative;
+}
+.header-nav-wrapper a[href='/media-folder'] {
+  padding: 10px 0px 10px 0px;
+  position: relative;
+}
+
+.header-nav-wrapper a[href='/about-1'] {
+  padding: 10px 0px 10px 0px;
+  position: relative;
+}
+
+.header-nav-wrapper a[href='/about#donate'] {
+  background-color: #001145;
+  padding: 10px 30px 10px 30px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.header .header-layout-nav-right .header-nav .header-nav-item--folder .header-nav-folder-content {
+  padding-right: 0px;
+}
+
+.header-nav-folder-item {
+  padding: 10px 16px 10px 0px;
+}
+
+.header .header-layout-nav-right .header-nav .header-nav-item--folder .header-nav-folder-content {
+  left: auto;
+  right: -1em;
+  text-align: right;
+  background-color: rgba(0, 0, 0, 0);
+  transition: 0.5s;
+}
+.header .header-layout-nav-right .header-nav .header-nav-item--folder .header-nav-folder-content a:hover {
+  transition: 0.5s;
+}
+
+.header-nav-wrapper a[href='/22-23-tickets'] {
+  background: linear-gradient(-45deg, #ff8c00, #ffead0) !important;
+  padding: 10px 30px 10px 30px;
+  border-radius: 8px;
+  position: relative;
+  font-weight: 900;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  color: #000 !important;
+}
+
+.header-nav-wrapper a:hover[href='/about#donate'] {
+  background-color: #001145;
+  padding: 10px 30px 10px 30px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.header-nav-wrapper a:hover[href='/22-23-tickets'] {
+  background: linear-gradient(-45deg, #ff8c00, #ffead0) !important;
+  padding: 10px 30px 10px 30px;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0px 12px 16px rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+}
+
+.header-menu a[href='/about#donate'] {
+  background-color: #184275;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  display: inline;
+  position: relative;
+  color: #fff !important;
+  border-radius: 0.4rem;
+  top: 60px;
+}
+.header-menu a[href='/22-23-tickets'] {
+  background: linear-gradient(-45deg, #ff8c00, #ffead0) !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 20vw;
+  padding-right: 20vw;
+  display: inline;
+  position: relative;
+  border-radius: 0.4rem;
+  top: 100px;
+}
+*/
+
+/* headerSizeChange */
+#header {
+  background-color: transparent;
+}
+.header-announcement-bar-wrapper {
+  background-color: #1a1a1a !important;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+#header .btn {
+  padding: 0.96rem 1.6032rem;
+  transition: 0.5s !important;
+}
+
+#header .header-title-logo img {
+  transition: max-height 0.5s;
+}
+#header.shrink {
+  .header-announcement-bar-wrapper {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+    padding-top: 1vh !important;
+    padding-bottom: 1vh !important;
+    transition: 0.5s;
+  }
+  .header-title-logo img {
+    max-height: 50px;
+    transition: 0.5s;
+  }
+  .btn {
+    padding: 0.6rem 1.6032rem;
+    transition: 0.5s;
+  }
+}
+
+/* footer */
+[id='footer-sections'] {
+  .page-section.layout-engine-section.background-width--full-bleed.section-height--custom.content-width--wide.horizontal-alignment--center.vertical-alignment--middle {
+    min-height: 0 !important;
+  }
+  .content-wrapper {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+    .sqs-layout:not(.sqs-editing) > .sqs-row:first-child > [class*='sqs-col']:first-child > .sqs-block:last-child,
+    .sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):last-child {
+      padding-bottom: 12px;
+      padding-top: 12px;
+    }
+  }
+}
+[data-section-id='60be7250baec7b152526496e'] {
+  box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.5);
+  p {
+    font-size: 0.6rem !important;
+  }
+}
+[data-section-id='60be519bafbc39042f925175'] {
+  box-shadow: 0px -4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Play Button */
+.sqs-video-wrapper .sqs-video-overlay .sqs-video-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: transparent
+    /* url("https:static1.squarespace.com/static/60be519aafbc39042f92512d/t/60ff374fbbf0a573aa18e8cd/1627338575202/enSRQ+-+Play+Button.png") */
+    center center no-repeat;
+  height: 100px;
+  width: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  cursor: pointer;
+}
+
+/* tickets */
+.tickettable {
+  font-family: museo, sans-serif;
+  font-size: 100%;
+  color: #000;
+  padding: 0px;
+  border: 0px solid #000;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0);
+}
+.tickettable td {
+  padding: 24px 18px 24px 18px;
+  border: 0px solid #000;
+}
+.tickettable td:nth-child(odd) {
+  text-align: right;
+  h3 {
+    margin: 0px;
+    line-height: auto;
+  }
+  p {
+    margin: 0px;
+  }
+  br {
+    display: none;
+  }
+}
+@media (max-width: 787px) {
+  .tickettable {
+    max-width: 100%;
+  }
+  .tickettable td {
+    display: block;
+    width: auto;
+    padding: 10px;
+  }
+  .tickettable td:nth-child(even) {
+    width: auto;
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  .tickettable td:nth-child(odd) {
+    width: auto;
+    text-align: center;
+    padding-top: 80px;
+  }
+}
+
+/* tables */
+.detailstable {
+  font-family: museo, sans-serif;
+  font-size: 100%;
+  color: #000;
+  padding: 50px;
+  border: 0px solid #000;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+}
+.detailstable td {
+  /* padding: 30px; */
+  /* border: 0px solid #000; */
+}
+.programtable {
+  font-family: museo, sans-serif;
+  font-size: 100%;
+  color: #000;
+  padding: 0px;
+  border: 0px solid #000;
+  width: auto;
+  background-color: rgba(255, 255, 255, 0);
+}
+.programtable td {
+  padding: 0px 20px 20px 0px;
+  border: 0px solid #000;
+}
+.programtable td:nth-child(odd) {
+  text-align: right;
+}
+
+/* buttons */
+.sqs-block-button-element--large.sqs-block-button-element {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+/* --------------------------------------------------------------------------------------------- */
+/* 22-23animation */
+.titleleft {
+  -webkit-display: flex;
+  -moz-display: flex;
+  -ms-display: flex;
+  -o-display: flex;
+  display: flex;
+  -webkit-position: absolute;
+  -moz-position: absolute;
+  -ms-position: absolute;
+  -o-position: absolute;
+  position: absolute;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -ms-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+  -webkit-transform: translateY(10vh);
+  -moz-transform: translateY(10vh);
+  -ms-transform: translateY(10vh);
+  -o-transform: translateY(10vh);
+  transform: translateY(10vh);
+}
+.titleleft img {
+  object-fit: contain;
+  object-position: 0% 0%;
+  max-height: 90vh;
+  margin: auto;
+}
+.titleleft.show {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-opacity: 1;
+  -o-opacity: 1;
+  opacity: 1;
+  -webkit-animation: slide-in-left 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  -moz-animation: slide-in-left 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  -ms-animation: slide-in-left 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  -o-animation: slide-in-left 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  animation: slide-in-left 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+}
+@keyframes slide-in-left {
+  0% {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    -o-opacity: 1;
+    opacity: 1;
+    -webkit-transform: translateX(-66vw) translateY(-38vw);
+    -moz-transform: translateX(-66vw) translateY(-38vw);
+    -ms-transform: translateX(-66vw) translateY(-38vw);
+    -o-transform: translateX(-66vw) translateY(-38vw);
+    transform: translateX(-66vw) translateY(-38vw);
+  }
+
+  100% {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    -o-opacity: 1;
+    opacity: 1;
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.titleright {
+  display: flex;
+  position: absolute;
+  opacity: 0;
+  transition: 1s;
+  max-height: 90vh;
+  transform: translateY(10vh);
+}
+.titleright img {
+  object-fit: contain;
+  object-position: 100% 0%;
+  max-height: 90vh;
+  margin: auto;
+}
+.titleright.show {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-opacity: 1;
+  -o-opacity: 1;
+  opacity: 1;
+  -webkit-animation: slide-in-right 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  -moz-animation: slide-in-right 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  -ms-animation: slide-in-right 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  -o-animation: slide-in-right 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+  animation: slide-in-right 1s cubic-bezier(0.87, 0, 0.13, 1) 0s 1 normal forwards;
+}
+@keyframes slide-in-right {
+  0% {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    -o-opacity: 1;
+    opacity: 1;
+    transform: translateX(66vw) translateY(-38vw);
+  }
+  100% {
+    -webkit-opacity: 1;
+    -moz-opacity: 1;
+    -ms-opacity: 1;
+    -o-opacity: 1;
+    opacity: 1;
+    -webkit-transform: translateX(0) translateY(0);
+    -moz-transform: translateX(0) translateY(0);
+    -ms-transform: translateX(0) translateY(0);
+    -o-transform: translateX(0) translateY(0);
+    transform: translateX(0) translateY(0);
+  }
+}
