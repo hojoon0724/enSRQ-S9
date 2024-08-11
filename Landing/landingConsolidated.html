@@ -1,0 +1,599 @@
+<style>
+  body {
+    margin: 0;
+  }
+
+  .s9-landing-container {
+    position: relative;
+    height: max(fit-content, 100vh);
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .moving-strip-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* width: 300svw;
+  height: 100%; */
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .moving-strip {
+    height: 5svh;
+    width: 300svw;
+    background-repeat: no-repeat;
+    background-size: 50svw 100svw;
+    position: absolute;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .s9-grain-sand {
+    background: linear-gradient(
+        90deg,
+        rgba(251, 130, 0, 0),
+        rgba(251, 130, 0, 1),
+        rgba(251, 130, 0, 0),
+        rgba(251, 130, 0, 1),
+        rgba(251, 130, 0, 0),
+        rgba(251, 130, 0, 1),
+        rgba(251, 130, 0, 0)
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  .s9-grain-green {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 251, 134, 0),
+        rgba(0, 251, 134, 1),
+        rgba(0, 251, 134, 0),
+        rgba(0, 251, 134, 1),
+        rgba(0, 251, 134, 0),
+        rgba(0, 251, 134, 1),
+        rgba(0, 251, 134, 0)
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  .s9-grain-blue {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 58, 255, 0.3),
+        rgba(0, 58, 255, 1),
+        rgba(0, 58, 255, 0.3),
+        rgba(0, 58, 255, 1),
+        rgba(0, 58, 255, 0.3),
+        rgba(0, 58, 255, 1),
+        rgba(0, 58, 255, 0.3)
+      ),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .s9-landing-content-container {
+    position: relative;
+    height: fit-content;
+    z-index: 2;
+  }
+
+  .s9-text-container {
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-weight: 700;
+  }
+
+  .landing-main-button {
+    /* margin-top: 2.5rem; */
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    border: 1px solid black;
+    border-radius: 1.5rem;
+    background-color: white;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0svw);
+    }
+    to {
+      transform: translateX(-100svw);
+    }
+  }
+
+  .s9-text-container {
+    padding-bottom: 10vh;
+  }
+
+  .s9-landing-heading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem;
+  }
+
+  .s9-events-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .s9-landing-event-box {
+    /* background-color: rgba(0, 0, 0, 0.4); */
+    width: 100%;
+    height: calc(100svw / 3 / 5 * 3);
+    /* border: 1px solid red; */
+    position: relative;
+  }
+
+  .s9-landing-event-background-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .s9-landing-event-background-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .s9-landing-event-background-image img.fade-out {
+    opacity: 0;
+  }
+
+  .s9-landing-event-background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 1;
+  }
+
+  .s9-landing-event-background-image.fade-white::before {
+    opacity: 1;
+  }
+
+  .s9-landing-event-text-container {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    box-sizing: border-box;
+    justify-content: flex-end;
+    align-items: center;
+    /* background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0)); */
+  }
+
+  .s9-landing-event-background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    /* background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%); */
+  }
+
+  .s9-landing-event-background-image::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0) 100%);
+  }
+
+  .s9-landing-event-title {
+    font-size: 1.75rem;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
+  }
+  .s9-landing-event-date {
+    font-size: 1.1rem;
+    width: 100%;
+    text-align: center;
+    text-shadow: 0px 0px 8px rgba(255, 255, 255, 0.6);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    .s9-landing-container {
+    }
+
+    .s9-events-list {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    .s9-landing-event-box {
+      /* background-color: rgba(0, 0, 0, 0.4); */
+      width: 100%;
+      height: calc(100svw / 3 / 5 * 4);
+      /* border: 1px solid red; */
+      position: relative;
+    }
+
+    .s9-landing-event-title {
+      font-size: 3vw;
+    }
+    .s9-landing-event-date {
+      font-size: 2vw;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .s9-landing-heading-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .s9-landing-heading-container > h1 {
+      margin: none;
+    }
+
+    .s9-events-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .s9-landing-event-box {
+      height: calc(100vh / 8);
+      position: relative;
+      display: flex;
+      margin: 0.3rem 0rem;
+    }
+    .s9-landing-event-background-image {
+      width: 50%;
+      position: absolute;
+    }
+    .s9-landing-event-background-image::after {
+      background: none;
+    }
+    .s9-landing-event-text-container {
+      width: 100%;
+      position: absolute;
+      justify-content: center;
+      background: linear-gradient(
+        to left,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0) 60%
+      );
+    }
+    .s9-landing-event-title,
+    .s9-landing-event-date {
+      text-align: right;
+    }
+    .s9-landing-event-title {
+      font-size: 4.5vw;
+    }
+    .s9-landing-event-date {
+      font-size: 2.75vw;
+    }
+  }
+</style>
+
+<div class="s9-landing-container">
+  <div class="s9-landing-content-container">
+    <div class="s9-text-container">
+      <div class="s9-landing-heading-container">
+        <div class="s9-season-title">
+          <h1>Season 9</h1>
+        </div>
+        <a href="/24-25-tickets">
+          <button class="landing-main-button">Purchase Tickets Now</button>
+        </a>
+      </div>
+      <div class="s9-events-list">
+        <a href="https://ensrq.org/season9/night-reflected-event-page">
+          <div class="s9-01 s9-landing-event-box">
+            <div class="s9-landing-event-background-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df5e10ad-7952-4582-860d-f8ceb21365ba/01-01-kevinDay.jpg?format=750w"
+                alt=""
+              />
+            </div>
+            <div class="s9-landing-event-text-container">
+              <div class="s9-landing-event-title">Night, Reflected</div>
+              <div class="s9-landing-event-date">September 23, 2024 @ 7:30pm</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ensrq.org/season9/ives-and-schoenberg-at-150-event-page">
+          <div class="s9-02 s9-landing-event-box">
+            <div class="s9-landing-event-background-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/fc4eb942-8de3-495a-841a-beb6de672833/02-01-charlesIves.jpg?format=750w"
+                alt=""
+              />
+            </div>
+            <div class="s9-landing-event-text-container">
+              <div class="s9-landing-event-title">Ives and Schoenberg at 150</div>
+              <div class="s9-landing-event-date">November 25, 2024 @ 7:30pm</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ensrq.org/season9/visions-and-miracles-event-page">
+          <div class="s9-03 s9-landing-event-box">
+            <div class="s9-landing-event-background-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/50745cb5-8fc5-4c47-b88b-c3a69eb0a1d0/03-01-annaClyne.jpg?format=750w"
+                alt=""
+              />
+            </div>
+            <div class="s9-landing-event-text-container">
+              <div class="s9-landing-event-title">Visions and Miracles</div>
+              <div class="s9-landing-event-date">January 13, 2025 @ 7:30pm</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ensrq.org/season9/truth-and-mayhem-event-page">
+          <div class="s9-04 s9-landing-event-box">
+            <div class="s9-landing-event-background-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/094cf578-025d-4fa9-828c-fbeeb3edc9cb/04-01-ellenReid.jpg?format=750w"
+                alt=""
+              />
+            </div>
+            <div class="s9-landing-event-text-container">
+              <div class="s9-landing-event-title">Truth and Mayhem</div>
+              <div class="s9-landing-event-date">February 17, 2025 @ 7:30pm</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ensrq.org/season9/critical-moments-event-page">
+          <div class="s9-05 s9-landing-event-box">
+            <div class="s9-landing-event-background-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/691e6140-d99c-4f9e-b1e0-a6c8f6920889/05-01-kenjiBunch.jpg?format=750w"
+                alt=""
+              />
+            </div>
+            <div class="s9-landing-event-text-container">
+              <div class="s9-landing-event-title">Critical Moments</div>
+              <div class="s9-landing-event-date">March 17, 2025 @ 7:30pm</div>
+            </div>
+          </div>
+        </a>
+
+        <a href="https://ensrq.org/season9/jagden-und-formen-event-page">
+          <div class="s9-06 s9-landing-event-box">
+            <div class="s9-landing-event-background-image">
+              <img
+                src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/46e7ad08-e2b5-4f7c-bbf1-9340a0793ffc/06-01-wolfgangRihm.jpg?format=750w"
+                alt=""
+              />
+            </div>
+            <div class="s9-landing-event-text-container">
+              <div class="s9-landing-event-title">Jagden und Formen</div>
+              <div class="s9-landing-event-date">May 12, 2025 @ 7:30pm</div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="moving-strip-container" id="moving-strips-container"></div>
+</div>
+
+<script>
+  const stripColors = ['s9-grain-sand', 's9-grain-blue', 's9-grain-green'];
+
+  const container = document.getElementById('moving-strips-container');
+  const s9LandingContentContainer = document.getElementsByClassName('s9-landing-content-container')[0];
+
+  let stripHeight5vh = Math.floor(window.innerHeight / 20); // 5vh
+  let randomColorVal = Math.floor(Math.random() * stripColors.length);
+  const randomStripColor = stripColors[randomColorVal];
+
+  const maxSpeed = 3;
+
+  console.log(stripHeight5vh);
+
+  function updateHeight() {
+    totalHeightInPx = s9LandingContentContainer.getBoundingClientRect().height;
+    stripHeight5vh = Math.floor(window.innerHeight / 20);
+    console.log('Updated Height:', totalHeightInPx);
+  }
+
+  function clearContainer() {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+  }
+
+  function createStrip(stripIndex) {
+    const strip = document.createElement('div');
+    strip.classList.add(randomStripColor, 'moving-strip');
+
+    strip.style.top = `${stripIndex * stripHeight5vh}px`;
+
+    const randomOffset = Math.random() * window.innerWidth;
+    strip.style.backgroundPosition = `${randomOffset}px 0`;
+
+    const minSpeed = 3;
+    const maxSpeed = 10;
+    const speed = Math.random() * (maxSpeed - minSpeed) + minSpeed;
+    const duration = 1000 / speed;
+
+    strip.style.animation = `slide ${duration}s linear infinite`;
+
+    return strip;
+  }
+
+  function manageStrips() {
+    updateHeight();
+    clearContainer();
+    const height = totalHeightInPx;
+
+    const numStrips = Math.ceil(height / stripHeight5vh);
+
+    for (let stripCount = 0; stripCount < numStrips; stripCount++) {
+      const strip = createStrip(stripCount);
+      container.appendChild(strip);
+    }
+
+    const stripWidth = container.offsetWidth;
+    const offsetX = (window.innerWidth - stripWidth) / 2;
+    container.style.backgroundPosition = `${-offsetX}px center`;
+  }
+
+  window.addEventListener('load', () => {
+    updateHeight();
+    manageStrips();
+  });
+
+  const resizeObserver = new ResizeObserver(() => {
+    manageStrips();
+  });
+
+  resizeObserver.observe(document.body); // Observing the body to detect changes in window size
+
+  setTimeout(() => {
+    manageStrips();
+  }, 10);
+
+  const events = [
+    {
+      images: [
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df5e10ad-7952-4582-860d-f8ceb21365ba/01-01-kevinDay.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/8327b420-88b9-4dcd-92de-0396b6c5c647/01-02-sofiaGubaidulina.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/f2c7fb94-536c-484f-bf1d-e5d2c0a0f931/01-03-arleneSierra.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/79f96b04-c15b-4f98-9f1d-246f1eb4a82b/01-04-chrisStark.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/5ed9d729-e800-44ec-83d9-17256f398da4/01-05-shawnAllison.jpg?format=750w',
+
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/a73dcbdd-f821-49a7-b0c1-bff13d4239e0/01-06-GeorgeNickson.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/0f3b8e9e-9d82-440f-b602-f6aec94d78bd/01-07-SamanthaBennett.jpg?format=750w',
+      ],
+      currentImageIndex: 0,
+    },
+    {
+      images: [
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/fc4eb942-8de3-495a-841a-beb6de672833/02-01-charlesIves.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/1f89b370-c7e2-4e3d-9a58-8c2db5e48b51/02-02-arnoldSchoenberg.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/1090c829-8403-4e8a-92ec-8672c936705a/02-03-TheaLobo.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/319e3343-595a-4aae-b7c9-c1d8f4d40a84/02-04-StephenDruryPiano.jpg?format=750w',
+      ],
+      currentImageIndex: 0,
+    },
+    {
+      images: [
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/50745cb5-8fc5-4c47-b88b-c3a69eb0a1d0/03-01-annaClyne.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/ff13e41c-70b8-484a-8bc0-1400e2e61531/03-02-chrisTheofanidis.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/395bac43-8c18-49b8-b095-abaa352208f7/03-03-daiWei.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/f71dca0d-5820-4f9d-bc60-1432c1a37b06/03-04-hanLash.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/b773038b-3a4b-47f3-9e67-216919db42bc/03-05-gabrielaLenaFrank.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/eaad4ed8-3840-435b-92b8-526ccb02ac77/03-06-SamanthaBennett.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/b1372a0a-6fa8-4ac5-af9c-1acc2781fba7/03-07-StephanieBlockViola.jpg?format=750w',
+      ],
+      currentImageIndex: 0,
+    },
+    {
+      images: [
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/094cf578-025d-4fa9-828c-fbeeb3edc9cb/04-01-ellenReid.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/f2f8bdde-183c-479a-b2c8-925996dc28ba/04-02-paulMortilla.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/97f7d857-adfc-4c2c-9a55-b94ab5278d8b/04-03-jonathanCziner.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/43384a73-f81b-48e5-937f-204a396f037f/04-04-nicoMuhly.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/67a3a8c7-d20a-405d-bed2-02483ba28826/04-05-tanDun.jpg?format=750w',
+
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df365d9d-1fc4-4b3a-a520-c12dedf30f01/04-06-GeorgeNickson.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6a333561-c99e-4b2d-86a9-44bd35b0e11e/04-07-marcelina-suchocka.jpg?format=750w',
+      ],
+      currentImageIndex: 0,
+    },
+    {
+      images: [
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/691e6140-d99c-4f9e-b1e0-a6c8f6920889/05-01-kenjiBunch.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6dbe969c-039b-476f-823d-0aaa2cd8708a/05-02-georgePerle.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/ef200b65-9a1e-4130-b857-c93b967ed592/05-05-marcosBalter.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/a64e5bba-bcf7-4d9d-ba4b-7626c9af4a58/05-04-carolynChen.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6da0bc25-6509-4243-8b0f-60d55770427e/05-03-kittyXiao.jpg?format=750w',
+
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/e3c86b51-5d3d-4367-a3d8-b9f4c9eba9d4/05-06-betsy-hudson-traba.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df365d9d-1fc4-4b3a-a520-c12dedf30f01/04-06-GeorgeNickson.jpg?format=750w',
+      ],
+      currentImageIndex: 0,
+    },
+    {
+      images: [
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/46e7ad08-e2b5-4f7c-bbf1-9340a0793ffc/06-01-wolfgangRihm.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/eaad4ed8-3840-435b-92b8-526ccb02ac77/03-06-SamanthaBennett.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df365d9d-1fc4-4b3a-a520-c12dedf30f01/04-06-GeorgeNickson.jpg?format=750w',
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/d73c64c2-86a2-4024-88fd-fd28cdd4746b/06-03-Conor_Hanickd.jpg?format=750w',
+      ],
+      currentImageIndex: 0,
+    },
+  ];
+
+  function rotateImages() {
+    setInterval(() => {
+      // Randomly select a frame to update
+      const randomFrameIndex = Math.floor(Math.random() * events.length);
+      const event = events[randomFrameIndex];
+
+      // Randomly select a new image for the selected frame
+      event.currentImageIndex = Math.floor(Math.random() * event.images.length);
+      const eventElement = document.querySelector(`.s9-${String(randomFrameIndex + 1).padStart(2, '0')} img`);
+      if (eventElement) {
+        eventElement.src = event.images[event.currentImageIndex];
+      }
+    }, 1000); // 1000 ms = 1 second
+  }
+
+  setInterval(rotateImages, 3000); // Rotate every 3 seconds
+
+  /*
+  function rotateImages() {
+    events.forEach((event, index) => {
+      event.currentImageIndex = Math.floor(Math.random() * event.images.length);
+      const eventElement = document.querySelector(`.s9-${String(index + 1).padStart(2, '0')} img`);
+      if (eventElement) {
+        eventElement.src = event.images[event.currentImageIndex];
+      }
+    });
+  }
+  
+  function rotateImage(event, index) {
+    event.currentImageIndex = Math.floor(Math.random() * event.images.length);
+    const eventElement = document.querySelector(`.s9-${String(index + 1).padStart(2, '0')} img`);
+    if (eventElement) {
+      eventElement.src = event.images[event.currentImageIndex];
+    }
+  }
+  
+  function setRandomInterval(event, index) {
+    const randomTime = Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
+    setInterval(() => rotateImage(event, index), randomTime);
+  }
+  
+  events.forEach((event, index) => {
+    setRandomInterval(event, index);
+  });
+  */
+</script>

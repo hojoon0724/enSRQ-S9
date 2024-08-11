@@ -225,120 +225,192 @@
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  .s9-fellowship-artist-block-container {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+  }
+  .fellowship-2024-artist-container {
+    display: grid;
+    grid-template-columns: 1fr 80ch;
+    column-gap: 2rem;
+    margin: 1.5rem 0rem;
+    row-gap: 2rem;
+  }
+  .fellowship-2024-name {
+    font-weight: 700;
+    font-size: 1.75rem;
+    text-transform: capitalize;
+  }
+
+  .fellowship-2024-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15ch;
+    font-size: 90%;
+  }
+  .fellowship-2024-bio {
+    width: 100%;
+    max-width: 72ch;
+    font-size: 1rem;
+  }
+  @media screen and (max-width: 1023px) {
+    .fellowship-2024-artist-container {
+      display: flex;
+      flex-direction: column;
+      margin: 0rem 1rem;
+    }
+    .fellowship-2024-artist-container {
+      row-gap: 0;
+    }
+    .fellowship-2024-bio {
+      padding-top: 0.5rem;
+      padding-bottom: 2rem;
+    }
+  }
 </style>
 <body>
   <div class="s9-banner-container">
     <div class="s9-text-container">
-      <div class="s9-event-title">
-        <div class="s9-banner-heading">Critical Moments</div>
+      <div class="s9-banner-event-title">
+        <div class="s9-banner-heading">Suncoast Composer Fellowship Program</div>
       </div>
-      <div class="s9-banner-buttons-container flex-row justify-center align-center">
-        <a href="https://ensrq.ticketspice.com/critical-moments-live" target="_blank">
+      <!-- <div class="s9-banner-buttons-container flex-row justify-center align-center">
+        <a href="https://ensrq.ticketspice.com/night-reflected-live" target="_blank">
           <button class="s9-purchase-tickets-button">Purchase Tickets</button>
         </a>
-        <a href="/season9/critical-moments-streaming">
+        <a href="/season9/night-reflected-streaming">
           <button class="s9-livestream-access-button">Access Livestream</button>
         </a>
-      </div>
+      </div> -->
     </div>
     <div class="moving-strip-container" id="moving-strips-container"></div>
   </div>
 
   <div class="s9-event-details-container">
     <div class="s9-top-row-container flex-row align-center">
-      <div class="s9-event-title">Critical Moments</div>
-      <div class="s9-event-date">March 17, 2025 @ 7:30pm</div>
+      <div class="s9-event-title">Suncoast Composer Fellowship Program</div>
+      <div class="s9-event-date">October 7, 2024 @ 7:30pm</div>
     </div>
-    <hr />
+    <!-- <hr />
     <p class="s9-event-blurb">
-      George Perle’s sparkling musical wit and humor are on display in his sextet, Critical Moments, paired alongside
-      exquisite string and wind works from Carolyn Chen, and Kenji Bunch. A commissioned work by rising star, Kitty
-      Xiao, anchors this program of enchanting musical worlds while Samantha Bennett solos in Marcos Balter’s beguiling
-      Violin Concerto to close this unique program of musical masterpieces, large and small.
-    </p>
+      Our Ninth Season opens with a powerful display of today’s most talented and diverse compositional voices, each
+      reflecting upon the great mystery and wonder of our cosmos. Works by Kevin Day, Arlene Sierra, Sofia Gubaidulina
+      and Chris Stark join Ft. Myers local, Shawn Allison, in this varied season opener of chamber music gems.
+    </p> -->
     <hr />
   </div>
 
-  <div class="s9-artists-block-container">
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/691e6140-d99c-4f9e-b1e0-a6c8f6920889/05-01-kenjiBunch.jpg?format=500w"
-        />
+  <div class="s9-fellowship-artist-block-container">
+    <div class="fellowship-2024-artist-container">
+      <div class="fellowship-2024-name-container">
+        <div class="fellowship-2024-name">DAVID ACEVEDO</div>
+        <div class="fellowship-2024-title">SCFP 2024 Fellow</div>
       </div>
-      <div class="s9-artist-name">Kenji Bunch</div>
+      <div class="fellowship-2024-bio">
+        David Acevedo is a Philadelphia-based composer and music educator. His wide-ranging work draws from many
+        traditions—including jazz, Afro-Latin, electronica, metal, and early music—and integrates linear and cyclic
+        concepts to weave hypnotic musical narratives. Acevedo’s music has been performed by loadbang, Daedalus Quartet,
+        ICE, counter)induction, Sae Hashimoto, and more, and has been selected for numerous festivals, including the
+        Yarn/Wire International Institute, Longy’s Divergent Studio, CLICK FEST, and the Young Composers Meeting.
+        Currently a doctoral candidate in music composition at the University of Pennsylvania, Acevedo holds degrees
+        from Stony Brook University and Columbia University.
+      </div>
     </div>
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6dbe969c-039b-476f-823d-0aaa2cd8708a/05-02-georgePerle.jpg?format=500w"
-        />
+    <div class="fellowship-2024-artist-container">
+      <div class="fellowship-2024-name-container">
+        <div class="fellowship-2024-name">MAX GIBSON</div>
+        <div class="fellowship-2024-title">SCFP 2024 Fellow</div>
       </div>
-      <div class="s9-artist-name">George Perle</div>
+      <div class="fellowship-2024-bio">
+        Max Gibson is a British-Irish composer, performer, writer, and educator based in Northern California. His works
+        have been performed and presented internationally in Australia, Austria, Belgium, Brazil, Canada, France,
+        Ireland, Slovenia, Sweden, Turkey, the UK and USA. His work draws on medievalism, architecture, industrialism,
+        astronomy and astrology, as well as the natural world, and engages with aspects of expanded time, line, and
+        sound massing. He is pursuing a PhD in Composition and Theory with emphases in Environmental Humanities and
+        Science and Technology Studies at the University of California, Davis where he studies with Kurt Rohde, Mika
+        Pelo, and Pablo Ortiz.
+      </div>
     </div>
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/ef200b65-9a1e-4130-b857-c93b967ed592/05-05-marcosBalter.jpg?format=500w"
-        />
+    <div class="fellowship-2024-artist-container">
+      <div class="fellowship-2024-name-container">
+        <div class="fellowship-2024-name">DANIEL GOSTELOW</div>
+        <div class="fellowship-2024-title">SCFP 2024 Fellow</div>
       </div>
-      <div class="s9-artist-name">Marcos Balter</div>
+      <div class="fellowship-2024-bio">
+        Daniel Gostelow's music features expressive opposites-ferocity, brutality, density, and excess contrasted with
+        sparsity, stasis, and quietness. He writes music with dopaminergic charge, and exploits the upper limits of
+        physical exertion and phraseological force. Daniel’s music has been performed by the Arditti Quartet, Ensemble
+        Court Circuit, and Ensemble Linea. He was a Visiting Assistant Professor of Music at University at Buffalo,
+        where he received his PhD studying under David Felder. He received his BM from Oberlin Conservatory, studying
+        with Lewis Nielson and Daniel Tacke.
+      </div>
     </div>
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/a64e5bba-bcf7-4d9d-ba4b-7626c9af4a58/05-04-carolynChen.jpg?format=500w"
-        />
+    <div class="fellowship-2024-artist-container">
+      <div class="fellowship-2024-name-container">
+        <div class="fellowship-2024-name">JOSHUA MUETZEL</div>
+        <div class="fellowship-2024-title">SCFP 2024 Fellow</div>
       </div>
-      <div class="s9-artist-name">Carolyn Chen</div>
+      <div class="fellowship-2024-bio">
+        Joshua Muetzel’s compositions center on the commonalities in human experience and nature’s fundamental and
+        mystical qualities. Interested in numbers and order in nature, climate change, interpersonal relationships, and
+        personal introspection, Josh touches on these concepts through a narrative compositional style that reaches
+        beyond categorizations of style or genre. Josh writes for a variety of ensemble sizes, and performs on steel
+        pan. He holds a master’s degree in Composition from the Lamont School of Music at the University of Denver. His
+        principal instructors include Sean Friar, Peter Lieuwen, and David Wilborn.
+      </div>
     </div>
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6da0bc25-6509-4243-8b0f-60d55770427e/05-03-kittyXiao.jpg?format=500w"
-        />
+    <div class="fellowship-2024-artist-container">
+      <div class="fellowship-2024-name-container">
+        <div class="fellowship-2024-name">TREYA NASH</div>
+        <div class="fellowship-2024-title">SCFP 2024 Fellow</div>
       </div>
-      <div class="s9-artist-name">Kitty Xiao</div>
+      <div class="fellowship-2024-bio">
+        Treya Nash is a composer and creative coder currently completing her PhD at Louisiana State University with Mara
+        Gibson, Jesse Allison, and Steven David Beck. She has previously studied with Paul Koonce, Mark Engebretson, and
+        Alejandro Rutty. She teaches courses in composition and coding, and previously worked as Program Director for
+        Charlotte New Music. Treya’s area of focus is audience participation in the concert hall, which often involves
+        creating web apps for cell phone use.
+      </div>
     </div>
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/e3c86b51-5d3d-4367-a3d8-b9f4c9eba9d4/05-06-betsy-hudson-traba.jpg?format=500w"
-        />
+    <div class="fellowship-2024-artist-container">
+      <div class="fellowship-2024-name-container">
+        <div class="fellowship-2024-name">SEAN QUINN</div>
+        <div class="fellowship-2024-title">SCFP 2024 Fellow</div>
       </div>
-      <div class="s9-artist-name">Betsy Hudson Traba</div>
-    </div>
-    <div class="s9-artist-container">
-      <div class="s9-artist-photo">
-        <img
-          src="https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df365d9d-1fc4-4b3a-a520-c12dedf30f01/04-06-GeorgeNickson.jpg?format=500w"
-        />
+      <div class="fellowship-2024-bio">
+        Sean Quinn is a composer, vocalist, and writer based in Melbourne and Berlin. His recent works explore the
+        evolution of musical forms through accumulation. Quinn is inspired by the human body and its complexities. He
+        collaborates with many internationally renowned performers, including clarinetist Richard Haynes, flutist Eric
+        Lamb, institut .abeceda, and has been commissioned with groups Ensemble Offspring soloists of Ensemble
+        Musikfabrik and Studio Musikfabrik amongst others.
       </div>
-      <div class="s9-artist-name">George Nickson</div>
     </div>
   </div>
 
-  <div class="s9-program-container">
+  <!-- <div class="s9-program-container">
     <hr />
     <div class="s9-program-title">Program</div>
     <div class="s9-program-table">
-      <div class="s9-program-composer">Kenji Bunch</div>
-      <div class="s9-program-work">Until Next Time (2010)</div>
+      <div class="s9-program-composer">Kevin Day</div>
+      <div class="s9-program-work">Glasshouse (2023)</div>
 
-      <div class="s9-program-composer">George Perle</div>
-      <div class="s9-program-work">Critical Moments (2001)</div>
+      <div class="s9-program-composer">Sofia Gubaidulina</div>
+      <div class="s9-program-work">String Quartet No. 2 (1987)</div>
 
-      <div class="s9-program-composer">Kitty Xiao</div>
-      <div class="s9-program-work">New Work COMMISSION (2025)</div>
+      <div class="s9-program-composer">Arlene Sierra</div>
+      <div class="s9-program-work">Avian Mirrors (2013)</div>
 
-      <div class="s9-program-composer">Carolyn Chen</div>
-      <div class="s9-program-work">Oceans in Oceans (2014)</div>
+      <div class="s9-program-composer">Chris Stark</div>
+      <div class="s9-program-work">Stars in Dead Reflection (2010)</div>
 
-      <div class="s9-program-composer">Marcos Balter</div>
-      <div class="s9-program-work">Violin Concerto (2016)</div>
+      <div class="s9-program-composer">Shawn Allison</div>
+      <div class="s9-program-work">Night Rituals (2012)</div>
     </div>
     <hr />
-  </div>
+  </div> -->
 
   <script>
     const stripColors = ['s9-grain-sand', 's9-grain-blue', 's9-grain-green'];
