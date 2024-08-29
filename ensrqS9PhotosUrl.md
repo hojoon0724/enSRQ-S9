@@ -64,3 +64,5 @@ https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df365d9d-1fc
 
 https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/eaad4ed8-3840-435b-92b8-526ccb02ac77/03-06-SamanthaBennett.jpg?format=500w
 https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/d73c64c2-86a2-4024-88fd-fd28cdd4746b/06-03-Conor_Hanickd.jpg?format=500w
+
+https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/4154b3f4-6977-43f4-9d50-b6c03d926fa1/30x-1.png?content-type=image%2Fpng
