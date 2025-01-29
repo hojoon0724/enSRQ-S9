@@ -306,7 +306,6 @@
           <button class="landing-main-button">Purchase Tickets Now</button>
         </a>
       </div>
-
       <div class="s9-events-list">
         <a href="https://ensrq.org/season9/night-reflected-event-page">
           <div class="s9-01 s9-landing-event-box">
@@ -518,7 +517,6 @@
     {
       images: [
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/094cf578-025d-4fa9-828c-fbeeb3edc9cb/04-01-ellenReid.jpg?format=750w',
-        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/f2f8bdde-183c-479a-b2c8-925996dc28ba/04-02-paulMortilla.jpg?format=750w',
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/97f7d857-adfc-4c2c-9a55-b94ab5278d8b/04-03-jonathanCziner.jpg?format=750w',
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/43384a73-f81b-48e5-937f-204a396f037f/04-04-nicoMuhly.jpg?format=750w',
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/67a3a8c7-d20a-405d-bed2-02483ba28826/04-05-tanDun.jpg?format=750w',
@@ -534,8 +532,9 @@
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6dbe969c-039b-476f-823d-0aaa2cd8708a/05-02-georgePerle.jpg?format=750w',
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/ef200b65-9a1e-4130-b857-c93b967ed592/05-05-marcosBalter.jpg?format=750w',
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/a64e5bba-bcf7-4d9d-ba4b-7626c9af4a58/05-04-carolynChen.jpg?format=750w',
-        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/6da0bc25-6509-4243-8b0f-60d55770427e/05-03-kittyXiao.jpg?format=750w',
 
+        'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/f2f8bdde-183c-479a-b2c8-925996dc28ba/04-02-paulMortilla.jpg?format=750w',
+        
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/e3c86b51-5d3d-4367-a3d8-b9f4c9eba9d4/05-06-betsy-hudson-traba.jpg?format=750w',
         'https://images.squarespace-cdn.com/content/60be519aafbc39042f92512d/df365d9d-1fc4-4b3a-a520-c12dedf30f01/04-06-GeorgeNickson.jpg?format=750w',
       ],
@@ -552,49 +551,22 @@
     },
   ];
 
-  function rotateImages() {
-    setInterval(() => {
-      // Randomly select a frame to update
-      const randomFrameIndex = Math.floor(Math.random() * events.length);
-      const event = events[randomFrameIndex];
+  let currentFrameIndex = 0;
+function rotateImages() {
+  setInterval(() => {
+    // Randomly select a frame to update
+    const randomFrameIndex = Math.floor(Math.random() * events.length);
+    const event = events[randomFrameIndex];
 
-      // Randomly select a new image for the selected frame
-      event.currentImageIndex = Math.floor(Math.random() * event.images.length);
-      const eventElement = document.querySelector(`.s9-${String(randomFrameIndex + 1).padStart(2, '0')} img`);
-      if (eventElement) {
-        eventElement.src = event.images[event.currentImageIndex];
-      }
-    }, 1000); // 1000 ms = 1 second
-  }
-
-  setInterval(rotateImages, 3000); // Rotate every 3 seconds
-
-  /*
-  function rotateImages() {
-    events.forEach((event, index) => {
-      event.currentImageIndex = Math.floor(Math.random() * event.images.length);
-      const eventElement = document.querySelector(`.s9-${String(index + 1).padStart(2, '0')} img`);
-      if (eventElement) {
-        eventElement.src = event.images[event.currentImageIndex];
-      }
-    });
-  }
-  
-  function rotateImage(event, index) {
+    // Randomly select a new image for the selected frame
     event.currentImageIndex = Math.floor(Math.random() * event.images.length);
-    const eventElement = document.querySelector(`.s9-${String(index + 1).padStart(2, '0')} img`);
+    const eventElement = document.querySelector(`.s9-${String(randomFrameIndex + 1).padStart(2, '0')} img`);
     if (eventElement) {
       eventElement.src = event.images[event.currentImageIndex];
     }
-  }
-  
-  function setRandomInterval(event, index) {
-    const randomTime = Math.floor(Math.random() * (5000 - 3000 + 1)) + 3000;
-    setInterval(() => rotateImage(event, index), randomTime);
-  }
-  
-  events.forEach((event, index) => {
-    setRandomInterval(event, index);
-  });
-  */
+  }, 1000); // 1000 ms = 1 second
+}
+
+// Start rotating images
+rotateImages();
 </script>
